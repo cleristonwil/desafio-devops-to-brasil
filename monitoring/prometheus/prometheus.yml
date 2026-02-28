@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 15s      # Coleta métricas a cada 15 segundos
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "nginx"
+    static_configs:
+      - targets: ["nginx-exporter:9113"]   # Exporter de métricas do Nginx
+
+  - job_name: "cadvisor"
+    static_configs:
+      - targets: ["cadvisor:8080"]          # Métricas dos containers Docker
